@@ -13,7 +13,7 @@ const Search = () => {
     if (value.trim()) {
       console.log('Make request with: ', value)
     } else {
-      show('Введите данные пользователя')
+      show('Введите данные пользователя!')
     }
   }
 
