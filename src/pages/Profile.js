@@ -7,8 +7,6 @@ export const Profile = () => {
   const {getUser, getRepos, loading, user, repos} = useContext(GithubContext)
   const urlName = useParams();
 
-  console.log('Suchka',urlName.name)
-
   useEffect(() => {
    getUser(urlName.name)
    getRepos(urlName.name)
@@ -33,22 +31,22 @@ export const Profile = () => {
         <div className="card-body">
           <div className="row">
             <div className="col-sm-3 text-center">
-              <img src={avatar_url} alt={name}/>
+              <img
+                src={avatar_url}
+                alt={name}
+                style={{width:'150px'}}
+              />
               <h1>Name</h1>
               {location && <p>Местоположение: {location}</p>}
             </div>
             <div className="col">
               {
                 bio && <>
-                  <h3>BIO</h3>
+                  <h4>BIO</h4>
                   <p>{bio}</p>
                 </>
               }
-              <a
-                href={html_url}
-                target='_blank'
-                className='btn btn-dark'
-              >Открыть профиль</a>
+
               <ul>
                 {login && <li>
                   <strong>Username: </strong> {login}
@@ -62,10 +60,17 @@ export const Profile = () => {
                 <strong>Website: </strong> {blog}
               </li>}
               </ul>
-              <div className='badge badge-primary'>Подписчики: {followers}</div>
-              <div className='badge badge-success'>Подписан: {following}</div>
-              <div className='badge badge-info'>Репозитории: {public_repos}</div>
-              <div className='badge badge-dark'>Gists: {public_gists}</div>
+              <div style={{color: 'dark'}}><strong>Подписчики:</strong> {followers}</div>
+              <div style={{color: 'dark'}}><strong>Подписан:</strong> {following}</div>
+              <div style={{color: 'dark'}}><strong>Репозитории:</strong> {public_repos}</div>
+              <div style={{color: 'dark'}}><strong>Gists:</strong> {public_gists}</div>
+
+              <a
+                href={html_url}
+                target='_blank'
+                className='btn btn-dark'
+              >Открыть профиль</a>
+
             </div>
           </div>
         </div>
