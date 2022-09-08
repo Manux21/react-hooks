@@ -1,6 +1,7 @@
 import React, {useContext, useEffect} from 'react'
 import {Link, useParams} from "react-router-dom";
 import {GithubContext} from "../context/github/githubContext";
+import {Repos} from "../components/Repos";
 
 export const Profile = () => {
 
@@ -68,6 +69,7 @@ export const Profile = () => {
               <a
                 href={html_url}
                 target='_blank'
+                rel="noreferrer"
                 className='btn btn-dark'
               >Открыть профиль</a>
 
@@ -75,6 +77,7 @@ export const Profile = () => {
           </div>
         </div>
       </div>
+      <Repos repos={repos}/>
     </>
   )
 }
